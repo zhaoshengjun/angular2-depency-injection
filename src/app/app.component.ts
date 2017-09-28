@@ -3,6 +3,7 @@ import { DataService } from "./data.service";
 import { LogDebugger } from "./log-debugger";
 import { ConsoleService } from "./console.service";
 import { Observable } from "Rxjs/Observable";
+import { THIRD_PARTY_PROVIDERS } from "./third-party";
 
 @Component({
   selector: "app-root",
@@ -18,7 +19,8 @@ import { Observable } from "Rxjs/Observable";
     {
       provide: "apiUrl",
       useValue: "http://localhost:4201/users"
-    }
+    },
+    THIRD_PARTY_PROVIDERS
   ],
   styleUrls: ["./app.component.css"]
 })
