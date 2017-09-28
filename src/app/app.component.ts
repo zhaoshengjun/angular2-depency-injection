@@ -2,12 +2,14 @@ import { Component, OnInit } from "@angular/core";
 import { DataService } from "./data.service";
 import { LogDebugger } from "./log-debugger";
 import { ConsoleService } from "./console.service";
+import { Observable } from "Rxjs/Observable";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   providers: [
     DataService,
+
     ConsoleService,
     {
       provide: LogDebugger,
@@ -19,7 +21,7 @@ import { ConsoleService } from "./console.service";
 })
 export class AppComponent implements OnInit {
   title = "app";
-  items: Array<any>;
+  items: Observable<any>;
 
   constructor(private dataService: DataService) {}
 

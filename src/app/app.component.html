@@ -1,8 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
   <ul>
-    <li *ngFor="let item of items">
-      {{item.id}}: {{item.name}} lives in {{item.country}}
+    <li *ngFor="let item of items | async">
+      {{item.id}}: {{item.name}} lives in {{item.address.city}}
     </li>
   </ul>
 </div>
