@@ -9,12 +9,15 @@ import { Observable } from "Rxjs/Observable";
   templateUrl: "./app.component.html",
   providers: [
     DataService,
-
     ConsoleService,
     {
       provide: LogDebugger,
       useFactory: consoleService => new LogDebugger(consoleService, true),
       deps: [ConsoleService]
+    },
+    {
+      provide: "apiUrl",
+      useValue: "http://localhost:4201/users"
     }
   ],
   styleUrls: ["./app.component.css"]

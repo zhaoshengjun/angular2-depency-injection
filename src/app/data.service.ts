@@ -1,12 +1,14 @@
 import { LogDebugger } from "./log-debugger";
-import { Injectable } from "@angular/core";
+import { Injectable, Inject } from "@angular/core";
 import { Http } from "@angular/http";
 import "rxjs/add/operator/map";
 @Injectable()
 export class DataService {
-  apiUrl = "http://localhost:4201/users";
-
-  constructor(private logDebugger: LogDebugger, private http: Http) {}
+  constructor(
+    private logDebugger: LogDebugger,
+    private http: Http,
+    @Inject("apiUrl") private apiUrl
+  ) {}
 
   getItems() {
     this.logDebugger.debug("Getting items ......");
