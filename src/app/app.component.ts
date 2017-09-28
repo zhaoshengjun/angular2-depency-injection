@@ -6,28 +6,16 @@ import { ConsoleService } from "./console.service";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
-  providers: [
-    DataService,
-    ConsoleService,
-    {
-      provide: LogDebugger,
-      useFactory: consoleService => new LogDebugger(consoleService, true),
-      deps: [ConsoleService]
-    }
-  ],
+  providers: [DataService],
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent implements OnInit {
   title = "app";
   items: Array<any>;
 
-  constructor(
-    private dataService: DataService,
-    private logDebugger: LogDebugger
-  ) {}
+  constructor(private dataService: DataService) {}
 
   ngOnInit() {
-    this.logDebugger.debug("Getting items ...");
     this.items = this.dataService.getItems();
   }
 }
