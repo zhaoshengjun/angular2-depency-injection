@@ -1,13 +1,19 @@
 import { Component, OnInit } from "@angular/core";
 import { DataService } from "./data.service";
 import { LogDebugger } from "./log-debugger";
+import { ConsoleService } from "./console.service";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   providers: [
-    { provide: DataService, useClass: DataService },
-    { provide: LogDebugger, useFactory: () => new LogDebugger(false) }
+    DataService,
+    ConsoleService,
+    {
+      provide: LogDebugger,
+      useFactory: consoleService => new LogDebugger(consoleService, true),
+      deps: [ConsoleService]
+    }
   ],
   styleUrls: ["./app.component.css"]
 })

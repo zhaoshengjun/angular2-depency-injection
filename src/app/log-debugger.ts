@@ -1,9 +1,14 @@
+import { ConsoleService } from "./console.service";
+
 export class LogDebugger {
-  constructor(public enableDebugger: boolean) {}
+  constructor(
+    private consoleService: ConsoleService,
+    public enableDebugger: boolean
+  ) {}
 
   debug(message: any) {
     if (this.enableDebugger) {
-      console.log("DEBUG: ", message);
+      this.consoleService.log(`DEBUG: ${message}`);
     }
   }
 }
