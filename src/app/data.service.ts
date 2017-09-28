@@ -1,5 +1,6 @@
-// import { ConsoleService } from "./console.service";
 import { LogDebugger } from "./log-debugger";
+import { Injectable } from "@angular/core";
+@Injectable()
 export class DataService {
   items: Array<any> = [
     { id: 0, name: "Pascal Precht", country: "Germany" },

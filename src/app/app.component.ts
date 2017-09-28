@@ -6,7 +6,15 @@ import { ConsoleService } from "./console.service";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
-  providers: [DataService],
+  providers: [
+    DataService,
+    ConsoleService,
+    {
+      provide: LogDebugger,
+      useFactory: consoleService => new LogDebugger(consoleService, true),
+      deps: [ConsoleService]
+    }
+  ],
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent implements OnInit {
