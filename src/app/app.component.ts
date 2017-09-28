@@ -4,6 +4,7 @@ import { LogDebugger } from "./log-debugger";
 import { ConsoleService } from "./console.service";
 import { Observable } from "Rxjs/Observable";
 import { THIRD_PARTY_PROVIDERS } from "./third-party";
+import { API_URL } from "./app.tokens";
 
 @Component({
   selector: "app-root",
@@ -17,7 +18,7 @@ import { THIRD_PARTY_PROVIDERS } from "./third-party";
       deps: [ConsoleService]
     },
     {
-      provide: "apiUrl",
+      provide: API_URL,
       useValue: "http://localhost:4201/users"
     },
     THIRD_PARTY_PROVIDERS
